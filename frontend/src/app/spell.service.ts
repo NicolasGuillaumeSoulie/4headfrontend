@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 
 
 export interface Spell {
@@ -47,35 +47,59 @@ export class SpellService {
     return this.mySpell;
   }
 
-  async getSpellList(classes: string[]) {
+  async getSpellListByClass(charClass: string) {
     this.spellList = [] as Spell[];
-    classes.forEach(async element => {
-      try {
-        const a = await this.httpClient.get<{ count: number, results: Spell[] }>('https://www.dnd5eapi.co/api/classes/' + element + '/spells/').toPromise();
-        var results = a.results
-        this.spellList = this.spellList.concat(results);//.filter((spell) => this.spellList.indexOf(spell) < 0));
-        //console.log(a.results);
-        console.log(this.spellList);
-      } catch (err) {
-        if (err instanceof HttpErrorResponse && err.status === 403) this.spellList = [];
-        else throw err;
-      }
-    });    console.log(this.spellList);
+    try {
+      const a = await this.httpClient.get<{ count: number, results: Spell[] }>('https://www.dnd5eapi.co/api/classes/' + charClass + '/spells/').toPromise();
+      this.spellList = a.results
+    } catch (err) {
+      if (err instanceof HttpErrorResponse && err.status === 403) this.spellList = [];
+      else throw err;
+    }
+    console.log(this.spellList);
+
+    return this.spellList;
+  }
+
+  async getSpellListByLevelAndName(spellLevel: number | null = null, nameSearch: string | null = null) {
+    this.spellList = [] as Spell[];
+
+    // Define Http params
+    let params = new HttpParams();
+
+    // Begin assigning parameters
+    if (spellLevel !== null) {
+      params = params.append('level', spellLevel.toString());
+    }
+    if (nameSearch !== null) {
+      params = params.append('name', nameSearch);
+    }
+
+    try {
+      // Send request
+      const a = await this.httpClient.get<{ count: number, results: Spell[] }>('https://www.dnd5eapi.co/api/spells/', { params: params }).toPromise();
+      // Get response
+      this.spellList = a.results
+    } catch (err) {
+      if (err instanceof HttpErrorResponse && err.status === 403) this.spellList = [];
+      else throw err;
+    }
+    console.log(this.spellList);
 
     return this.spellList;
   }
 
 
-/*
-  private async updateSpellList(classes: string[], callback: Callback) {
-    return new Promise((resolve: PromiseResolve<Spell[]>, reject: PromiseReject): void => {
-
-      
-    });
+  /*
+    private async updateSpellList(classes: string[], callback: Callback) {
+      return new Promise((resolve: PromiseResolve<Spell[]>, reject: PromiseReject): void => {
+  
+        
+      });
+    }
   }
-}
-
-type PromiseResolve<T> = (value?: T | PromiseLike<T>) => void;
-type PromiseReject = (error?: any) => void;
-*/
+  
+  type PromiseResolve<T> = (value?: T | PromiseLike<T>) => void;
+  type PromiseReject = (error?: any) => void;
+  */
 }

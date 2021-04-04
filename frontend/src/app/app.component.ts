@@ -9,7 +9,10 @@ import { Spell, SpellService } from './spell.service';
 export class AppComponent {
   title = 'frontend';
   constructor(private service: SpellService) {
-    service.getSpellList(['paladin','druid']);
+    console.log(service.getSpellListByClass('paladin'));
+    console.log(service.getSpellListByLevelAndName());
+    console.log(service.getSpellListByLevelAndName(0, "acid"));
+    console.log(service.getSpellListByLevelAndName(2));
   }
 
 }
