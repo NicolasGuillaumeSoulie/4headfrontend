@@ -34,11 +34,8 @@ export class SpellService {
     if (typeof this.mySpell !== 'undefined') return this.mySpell;
 
     try {
+      // Send request & save answer
       this.mySpell = await this.httpClient.get<Spell>('https://www.dnd5eapi.co/api/spells/' + index).toPromise() as Spell;
-      console.log("spell name: " + this.mySpell.name);
-      console.log(this.mySpell);
-      console.log(this.mySpell.name);
-      console.log(this.mySpell.desc);
     } catch (err) {
       if (err instanceof HttpErrorResponse && err.status === 403) this.mySpell = null;
       else throw err;
@@ -50,6 +47,7 @@ export class SpellService {
   async getSpellListByClass(charClass: string) {
     this.spellList = [] as Spell[];
     try {
+      // Send request & save answer
       const a = await this.httpClient.get<{ count: number, results: Spell[] }>('https://www.dnd5eapi.co/api/classes/' + charClass + '/spells/').toPromise();
       this.spellList = a.results
     } catch (err) {
@@ -76,9 +74,8 @@ export class SpellService {
     }
 
     try {
-      // Send request
+      // Send request & save answer
       const a = await this.httpClient.get<{ count: number, results: Spell[] }>('https://www.dnd5eapi.co/api/spells/', { params: params }).toPromise();
-      // Get response
       this.spellList = a.results
     } catch (err) {
       if (err instanceof HttpErrorResponse && err.status === 403) this.spellList = [];
@@ -88,18 +85,4 @@ export class SpellService {
 
     return this.spellList;
   }
-
-
-  /*
-    private async updateSpellList(classes: string[], callback: Callback) {
-      return new Promise((resolve: PromiseResolve<Spell[]>, reject: PromiseReject): void => {
-  
-        
-      });
-    }
-  }
-  
-  type PromiseResolve<T> = (value?: T | PromiseLike<T>) => void;
-  type PromiseReject = (error?: any) => void;
-  */
 }
