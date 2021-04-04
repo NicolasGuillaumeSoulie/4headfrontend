@@ -6,11 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
+import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { SpellListComponent } from './spell-list/spell-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent
+    NavigationComponent,
+    CharacterSheetComponent,
+    SpellListComponent
   ],
   imports: [
     BrowserModule,
