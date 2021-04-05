@@ -20,12 +20,8 @@ import { SpellListComponent } from './spell-list/spell-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
-    BrowserAnimationsModule,
+    HttpClientModule,
     MatToolbarModule
-=======
-    HttpClientModule
->>>>>>> e4a27b03398d17c24a1a8164ce3da20543e76218
   ],
   providers: [],
   bootstrap: [AppComponent]
