@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProfileService } from './profile.service';
 import { Spell, SpellService } from './spell.service';
 
 @Component({
@@ -8,11 +9,17 @@ import { Spell, SpellService } from './spell.service';
 })
 export class AppComponent {
   title = 'frontend';
-  constructor(private service: SpellService) {
-    console.log(service.getSpellListByClass('paladin'));
-    console.log(service.getSpellListByLevelAndName());
-    console.log(service.getSpellListByLevelAndName(0, "acid"));
-    console.log(service.getSpellListByLevelAndName(2));
+  constructor(private spellService: SpellService, private profileService: ProfileService) {
+    this.addSpellTest()
+    .then(spell => {this.profileService.addSpell(spell); return spell})
+    .then(spell => this.profileService.removeSpell(spell));
+    //this.profileService.setName("Z");
+    //this.profileService.addClass({index: "bard", level: 0});
+    //this.profileService.removeClass("bard");
   }
 
+  async addSpellTest(){
+    const spell = await this.spellService.getSpell("acid-arrow");
+    return spell;
+  }
 }
