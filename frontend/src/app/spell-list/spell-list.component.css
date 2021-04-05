@@ -1,0 +1,12 @@
+.spell-list {
+    display: table-cell;
+    width: 490px;
+  }
+
+mat-list-item {
+    display: flex;
+}
+
+mat-list-item p {
+    flex-grow: 3;
+}
