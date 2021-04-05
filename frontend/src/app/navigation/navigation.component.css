@@ -5,3 +5,8 @@
 mat-toolbar span {
     margin: 0 0.5em;
 }
+mat-toolbar a {
+    margin: 0 0.5em;
+    color : white !important;
+    text-decoration: none;
+}
