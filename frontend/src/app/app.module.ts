@@ -21,7 +21,8 @@ import { SpellListComponent } from './spell-list/spell-list.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MatToolbarModule
+    MatToolbarModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
