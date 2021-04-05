@@ -1,8 +1,7 @@
 <body>
+    <div style ="opacity: 0;"></div>
 <div>
-    <p></p>
-<h4>Class</h4>
-
+    
 <mat-form-field appearance="fill">
 
     <mat-select placeholder="Classe" (selectionChange)="changeClass($event)">
@@ -16,7 +15,6 @@
 </div>
 
 <div>
-<h4>Level</h4>
 <mat-form-field appearance="fill">
     <mat-label>Level</mat-label>
     <input matInput type="number" placeholder="Ex: 12" min="1" max="20" [(ngModel)]="myInput">
