@@ -36,7 +36,7 @@ import { SpellDetailsComponent } from './spell-details/spell-details.component';
     MatFormFieldModule,
     MatSelectModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
     MatListModule,
     MatButtonModule,
     MatDividerModule
