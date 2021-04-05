@@ -19,12 +19,18 @@ export interface Spell {
   url: string
 }
 
+export interface CharClass {
+  index: string,
+  name: string
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class SpellService {
   private mySpell: Spell | null | undefined;
   private spellList: Spell[];
+  private charClasses: CharClass[] | null | undefined;
 
   constructor(private httpClient: HttpClient) {
     this.spellList = [] as Spell[];
@@ -84,5 +90,18 @@ export class SpellService {
     console.log(this.spellList);
 
     return this.spellList;
+  }
+
+  async getClasses(){
+    try {
+      const a = await this.httpClient.get<{ count: number, results: CharClass[] }>('https://www.dnd5eapi.co/api/classes/').toPromise();
+      this.charClasses = a.results;
+    } catch (err) {
+      if (err instanceof HttpErrorResponse && err.status === 403) this.spellList = [];
+      else throw err;
+    }
+    console.log(this.charClasses);
+
+    return this.charClasses;
   }
 }
