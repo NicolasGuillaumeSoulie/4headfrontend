@@ -7,9 +7,9 @@
     <a routerLink='/Spelldetails/acid-arrow'>Spell details</a>
     <span>|</span>
     <div class="toolbar-spacer"></div>
-    <span>Character: </span>
 
-    <span>Nom</span>
-    <span>Classe :</span>
-    <span>Niveau</span>
+    <span>Profile: {{name}}</span>
+    <span *ngFor="let charClass of charClasses">
+        {{charClass.index}} (lvl.{{charClass.level}})
+    </span>
 </mat-toolbar>

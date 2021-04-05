@@ -7,7 +7,8 @@ import { SpellListComponent } from './spell-list/spell-list.component';
 const routes: Routes = [
   {path: 'Charactersheet', component: CharacterSheetComponent},
   {path: 'Spelllist', component: SpellListComponent},
-  {path: 'Spelldetails/:id', component: SpellDetailsComponent}
+  {path: 'Spelldetails/:id', component: SpellDetailsComponent},
+  {path: "", component: CharacterSheetComponent}
 ];
 
 @NgModule({

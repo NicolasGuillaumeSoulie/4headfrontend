@@ -1,32 +1,30 @@
 <body>
-<div>
-    <p></p>
-<h4>Class</h4>
+    <div style="opacity: 0;"></div>
+    <div>
 
-<mat-form-field appearance="fill">
+        <mat-form-field appearance="fill">
 
-    <mat-select placeholder="Classe" (selectionChange)="changeClass($event)">
-        <mat-option *ngFor="let classd of classdd" [value]="classd.index" type="text">
-            {{classd.name}}
-        </mat-option>
-    </mat-select>
-</mat-form-field>
+            <mat-select placeholder="Classe" (selectionChange)="changeClass($event)">
+                <mat-option *ngFor="let classd of classdd" [value]="classd.index" type="text">
+                    {{classd.name}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
 
-<h4> Your class is : {{myClass}} </h4>
-</div>
+        <h4> Your class is : {{myClass}} </h4>
+    </div>
 
-<div>
-<h4>Level</h4>
-<mat-form-field appearance="fill">
-    <mat-label>Level</mat-label>
-    <input matInput type="number" placeholder="Ex: 12" min="1" max="20" [(ngModel)]="myInput">
-</mat-form-field>
-<h4> Your level is : {{myInput}} </h4>
-</div>
+    <div>
+        <mat-form-field appearance="fill">
+            <mat-label>Level</mat-label>
+            <input matInput type="number" placeholder="Ex: 12" min="1" max="20" [(ngModel)]="myInput">
+        </mat-form-field>
+        <h4> Your level is : {{myInput}} </h4>
+    </div>
 
-<div>
+    <div>
 
-<button mat-raised-button color="primary" (click)="updateprofile(myClass , myInput)"> Update </button>
-</div>
+        <button mat-raised-button color="primary" (click)="updateprofile(myClass , myInput)"> Update </button>
+    </div>
 
 </body>
