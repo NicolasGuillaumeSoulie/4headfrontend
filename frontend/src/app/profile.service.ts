@@ -34,6 +34,7 @@ export class ProfileService {
 
   addSpell(spell: Spell | null) {
     if (spell !== null) {
+      this.removeSpell(spell);
       this.profile?.spellList.push(spell);
       this.saveProfile();
     }
