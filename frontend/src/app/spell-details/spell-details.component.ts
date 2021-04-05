@@ -8,17 +8,20 @@ import { Spell, SpellService } from '../spell.service';
 })
 export class SpellDetailsComponent implements OnInit {
 
-  private spell: Spell | null | undefined;
+  public spell: Spell;
 
 
   constructor(private spellService: SpellService) {
-
-
-
+    this.spell={name:"zorro"}as Spell;
   }
 
+
   async ngOnInit(): Promise<void> {
-    this.spell = await this.spellService.getSpell("acid-arrow");
+    const s = await this.spellService.getSpell("acid-arrow");
+    if(s !==null && s !== undefined)
+    {
+      this.spell= s as Spell;
+    }
   }
 
 }
