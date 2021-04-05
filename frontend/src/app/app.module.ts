@@ -12,16 +12,18 @@ import { SpellListComponent } from './spell-list/spell-list.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
-import {MatListModule} from '@angular/material/list'; 
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider'; 
+import { MatListModule } from '@angular/material/list';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { SpellDetailsComponent } from './spell-details/spell-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     CharacterSheetComponent,
-    SpellListComponent
+    SpellListComponent,
+    SpellDetailsComponent
   ],
   imports: [
     BrowserModule,
