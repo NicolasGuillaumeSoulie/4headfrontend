@@ -8,6 +8,7 @@ import { CharClass } from '../spell.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
+
 export class NavigationComponent implements OnInit {
 
   public name: string | undefined;
@@ -25,5 +26,4 @@ export class NavigationComponent implements OnInit {
       this.charClasses = classes;
     }
   }
-
 }
