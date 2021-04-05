@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -19,8 +20,12 @@ import { SpellListComponent } from './spell-list/spell-list.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+<<<<<<< HEAD
     BrowserAnimationsModule,
     MatToolbarModule
+=======
+    HttpClientModule
+>>>>>>> e4a27b03398d17c24a1a8164ce3da20543e76218
   ],
   providers: [],
   bootstrap: [AppComponent]
