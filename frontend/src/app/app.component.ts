@@ -16,10 +16,16 @@ export class AppComponent {
     //this.profileService.setName("Z");
     //this.profileService.addClass({index: "bard", level: 0});
     //this.profileService.removeClass("bard");
+    this.getCharClasses();
   }
 
   async addSpellTest(){
     const spell = await this.spellService.getSpell("acid-arrow");
     return spell;
+  }
+
+  async getCharClasses(){
+    const charClasses = await this.spellService.getClasses();
+    return charClasses;
   }
 }
