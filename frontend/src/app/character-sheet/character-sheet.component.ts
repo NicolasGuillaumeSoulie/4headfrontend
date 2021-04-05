@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
+import { CharClass, SpellService } from '../spell.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-character-sheet',
@@ -7,9 +10,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CharacterSheetComponent implements OnInit {
 
-  constructor() { }
+  classdd: CharClass[] | null | undefined;
+
+  constructor(private spellService: SpellService, private profileService: ProfileService) { 
+  } 
 
   ngOnInit(): void {
+    this.RetrieveData();
+  }
+  async RetrieveData() {
+    this.classdd = await this.spellService.getClasses();
   }
 
+  
+
 }
+
+

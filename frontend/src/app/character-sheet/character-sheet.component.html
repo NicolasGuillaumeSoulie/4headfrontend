@@ -1,20 +1,19 @@
-<form class="example-container" >
-   
-<h4>Basic native select</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Cars</mat-label>
-  <select matNativeControl required>
-    <option value="volvo">Volvo</option>
-    <option value="saab">Saab</option>
-    <option value="mercedes">Mercedes</option>
-    <option value="audi">Audi</option>
-  </select>
-</mat-form-field>
-  
-    <mat-form-field appearance="fill" >
-      <mat-label>Font size</mat-label>
-      <input matInput type="number" placeholder="Ex. 12"  min="0">
-      <span matSuffix>px</span>
-      <mat-error >Min size: 10px</mat-error>
+<h4>Classe</h4>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Classe</mat-label>
+      <mat-select>
+        <mat-option *ngFor="let classd of classdd" [value]="classd.index">
+          {{classd.name}}
+        </mat-option>
+      </mat-select>
     </mat-form-field>
-  </form>
+    <h4>Niveaux</h4>
+    <mat-form-field appearance="fill">
+        <mat-label>Level</mat-label>
+        <mat-select>
+            <mat-option *ngFor="let number of [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]" [value]="number">{{number}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    
+
