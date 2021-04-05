@@ -15,14 +15,14 @@ export class SpellListComponent implements OnInit {
   public charClasses: CharClass[] | null | undefined;
   // Search filter variables
   public charClass: string | undefined;
-  public search: string;
-  public level: number | undefined;
+  public search: string | undefined | null;
+  public level: number | undefined | null;
 
   constructor(private spellService: SpellService,
     private profileService: ProfileService,
     private router: Router) {
     this.spellCount = 0;
-    this.search = "";
+    this.search = null;
   }
 
   async ngOnInit(): Promise<void> {
@@ -33,7 +33,7 @@ export class SpellListComponent implements OnInit {
 
   async getSpell() {
     if (this.charClass === undefined) {
-      this.spellList = await this.spellService.getSpellListByLevelAndName();
+      this.spellList = await this.spellService.getSpellListByLevelAndName(this.level, this.search);
     }
     else {
       this.spellList = await this.spellService.getSpellListByClass(this.charClass);
@@ -49,8 +49,21 @@ export class SpellListComponent implements OnInit {
     this.getSpell();
   }
 
-  GoToDetails(index: string) {
-    this.router.navigate(["/Spelldetails"], {state: {data:{index: index}}});
+  async onChangeLevel(newLevel: any) {
+    this.level = newLevel.target.value;
+    console.log(this.level);
+    if (this.level === undefined || newLevel.target.value === "") {
+      this.level = null;
+    }
+    this.getSpell();
+  }
+
+  async onChangeSearch(newLevel: any) {
+    this.search = newLevel.target.value as string;
+    if (this.search === undefined || this.search === "") {
+      this.search = null;
+    }
+    this.getSpell();
   }
 
   AddSpell(spell: Spell) {
