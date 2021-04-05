@@ -3,7 +3,7 @@
 <mat-form-field appearance="fill">
 
     <mat-select placeholder="Classe" (selectionChange)="changeClass($event)">
-        <mat-option *ngFor="let classd of classdd" [value]="classd.index" type="text" [(ngModel)]="myClass">
+        <mat-option *ngFor="let classd of classdd" [value]="classd.index" type="text">
             {{classd.name}}
         </mat-option>
     </mat-select>
