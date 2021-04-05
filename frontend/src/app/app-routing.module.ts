@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
+import { SpellDetailsComponent } from './spell-details/spell-details.component';
 import { SpellListComponent } from './spell-list/spell-list.component';
 
 const routes: Routes = [
   {path: 'Charactersheet', component: CharacterSheetComponent},
-  {path: 'Spelllist', component: SpellListComponent}
+  {path: 'Spelllist', component: SpellListComponent},
+  {path: 'Spelldetails', component: SpellDetailsComponent}
 ];
 
 @NgModule({
