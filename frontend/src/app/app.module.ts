@@ -9,13 +9,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CharacterSheetComponent } from './character-sheet/character-sheet.component';
 import { SpellListComponent } from './spell-list/spell-list.component';
+import { SpellDetailsComponent } from './spell-details/spell-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     CharacterSheetComponent,
-    SpellListComponent
+    SpellListComponent,
+    SpellDetailsComponent
   ],
   imports: [
     BrowserModule,
