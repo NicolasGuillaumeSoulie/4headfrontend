@@ -13,12 +13,15 @@ Usage of a git repository to store the source code of the project and any of its
 
 ### Installation of Nodejs & npm
 Usage of the following command :
+
 ```sudo apt-get install -y nodejs```
 
 ### Angular
 Usage of Angular to build the application front using the following command :
+
 ```npm i -g @angular/cli @angular-devkit/core @angular-devkit/schematics @angular-eslint/schematics```
 
 ### Angular material
 Usage of Angular material to build the application front using the following command :
+
 ```ng add @angular/material```
