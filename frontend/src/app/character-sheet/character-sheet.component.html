@@ -1,1 +1,20 @@
-<p>character-sheet works!</p>
+<form class="example-container" >
+   
+<h4>Basic native select</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Cars</mat-label>
+  <select matNativeControl required>
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="mercedes">Mercedes</option>
+    <option value="audi">Audi</option>
+  </select>
+</mat-form-field>
+  
+    <mat-form-field appearance="fill" >
+      <mat-label>Font size</mat-label>
+      <input matInput type="number" placeholder="Ex. 12"  min="0">
+      <span matSuffix>px</span>
+      <mat-error >Min size: 10px</mat-error>
+    </mat-form-field>
+  </form>
