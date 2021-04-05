@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileService } from '../profile.service';
+import { CharClass, Spell, SpellService } from '../spell.service';
 
 @Component({
   selector: 'app-spell-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SpellListComponent implements OnInit {
 
-  constructor() { }
+  public spellList: Spell[] | undefined;
+  public spellCount: number;
+  public charClasses: CharClass[] | null | undefined;
 
-  ngOnInit(): void {
+  constructor(private spellService: SpellService, private profileService: ProfileService) {
+    this.spellCount = 0;
+  }
+
+  async ngOnInit(): Promise<void> {
+    this.spellList = await this.spellService.getSpellListByLevelAndName();
+    this.charClasses = await this.spellService.getClasses();
+    if (this.spellList !== undefined) {
+      this.spellCount = this.spellList.length;
+    }
+  }
+
+  AddSpell(spell: Spell){
+    this.profileService.addSpell(spell);
   }
 
 }

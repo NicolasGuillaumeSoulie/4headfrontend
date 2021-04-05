@@ -1,1 +1,34 @@
-<p>spell-list works!</p>
+<h1>Spell List</h1>
+<h2>Spell Filter</h2>
+<mat-form-field appearance="fill">
+    <mat-label>Class</mat-label>
+    <mat-select>
+        <mat-option *ngFor="let class of charClasses" [value]="class.index">
+            {{class.name}}
+        </mat-option>
+    </mat-select>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Level</mat-label>
+    <input matInput type="number" placeholder="Level" min="1" max="20">
+    <span matSuffix>lvl.</span>
+</mat-form-field>
+<mat-form-field appearance="fill">
+    <mat-label>Search</mat-label>
+    <input matInput type="text" placeholder="Spell Name">
+</mat-form-field>
+
+<mat-divider></mat-divider>
+<h2>{{spellCount}} spell(s) in total</h2>
+<mat-list>
+    <div class="spell-list">
+        <div class="spell-row" *ngFor="let spell of spellList">
+            <mat-list-item>
+                <p>{{spell.name}}</p>
+                <button mat-flat-button color="primary" name="details">Details</button>
+                <button mat-stroked-button color="primary" name="add" (click)="AddSpell(spell)">Add</button>
+            </mat-list-item>
+            <mat-divider></mat-divider>
+        </div>
+    </div>
+</mat-list>
