@@ -78,6 +78,7 @@ export class SpellService {
     if (nameSearch !== null) {
       params = params.append('name', nameSearch);
     }
+    console.log(params);
 
     try {
       // Send request & save answer
